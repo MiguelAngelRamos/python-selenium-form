@@ -8,10 +8,13 @@ from webdriver_manager.chrome import ChromeDriverManager
 def base_url():
     return os.getenv("BASE_URL", "https://web-form-selenium.netlify.app/")
 
+@pytest.fixture
 def driver():
     service = ChromeService(ChromeDriverManager().install())
     options = webdriver.ChromeOptions()
     # options.add_argument("--headless=new")
+    # Usar solo para depuración local ( options.add_experimental_option("detach", True))
+    # options.add_experimental_option("detach", True)
     driver = webdriver.Chrome(service=service, options=options)
     driver.maximize_window()
     yield driver
