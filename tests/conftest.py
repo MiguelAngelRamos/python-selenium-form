@@ -11,6 +11,7 @@ def base_url():
 def driver():
     service = ChromeService(ChromeDriverManager().install())
     options = webdriver.ChromeOptions()
+    # options.add_argument("--headless=new")
     driver = webdriver.Chrome(service=service, options=options)
     driver.maximize_window()
     yield driver
