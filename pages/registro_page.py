@@ -18,7 +18,8 @@ class RegistroPage(BasePage):
         self.driver.find_element(*self.EMAIL).send_keys(email)
 
     def submit(self):
-        self.driver.find_element(*self.BTN_SUBMIT).click()
+        self.wait_present(self.BTN_SUBMIT).click()
+        # self.driver.find_element(*self.BTN_SUBMIT).click()
 
     def feedback_text(self)-> str:
         return self.wait_present(self.FEEDBACK).text
